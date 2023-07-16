@@ -1,25 +1,32 @@
 // get user's location from browser data
-
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(logPosition);
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(getForecast);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
 }
-
-// convert browser location data to lat and long
-var user_loc = {};
-function logPosition(position) {
-  user_loc.lat = position.coords.latitude;
-  user_loc.long = position.coords.longitude;
-}
-console.log("user lat and long are: " + user_loc);
-
 
 // send API request
-if (user_loc.lat && user_loc.long) {
-  fetch('https://api.openweathermap.org/data/2.5/forecast?lat=' + user_loc.lat + '&' + user_loc.long + '&appid=16d53a9f2b7005ab7bb76548d745d586')
-    .then(response => response.text())
-    .then(text => console.log(text))
+function getForecast(position) {
+  fetch('https://api.openweathermap.org/data/2.5/forecast?lat=' + position.coords.latitude + '&lon=' + position.coords.longitude + '&appid=16d53a9f2b7005ab7bb76548d745d586&exclude=hourly')
+    .then((response) => response.json())
+    .then(json => weatherData = json)
+    .then(json => checkForRain(weatherData))
 }
 
-// put data to display into object properties to be displayed
+// examine probablity of rain from API data
+function checkForRain() {
+  const main = weatherData.list[0].weather[0].main.toLowerCase();
+  const description = weatherData.list[0].weather[0].description.toLowerCase();
+  var gonnaRain;
+  if (main.includes('rain') || description.includes('rain')) {
+    gonnaRain = true;
+    console.log("yeah, probably");
+  } else {
+    gonnaRain = false;
+    console.log("probably not");
+  }
+}
 
 // render to view 
