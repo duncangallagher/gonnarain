@@ -1,0 +1,82 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Belanosima', sans-serif;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: #499CEF;
+    background: linear-gradient(0deg, #499CEF, #0E3958);
+}
+
+.main {
+    margin-top: 10vh;
+    text-align: center;
+}
+
+.main h1 {
+    font-size: 2em;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+.main p {
+    color: #ffffff;
+    font-size: 1.5em;
+    margin: 1em;
+}
+
+.main button {
+    background-color: #ffffff;
+    color: #333333;
+    -moz-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 1.5em;
+    padding: 0.5em 1em;
+    margin: 1em;
+    border: none;
+    font-family: 'Belanosima', sans-serif;
+    font-weight: 400;
+}
+
+.main button:hover {
+    background-color: #5a4c9c;
+    color: #ffffff;
+}
+
+.main #reset {
+    cursor: pointer;
+}
+
+.horizon {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 12rem;
+    background-color: #009E7C;
+    border-radius: 12rem 12rem 0 0;
+}

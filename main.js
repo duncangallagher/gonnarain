@@ -22,10 +22,10 @@ function checkForRain() {
   var gonnaRain;
   if (main.includes('rain') || description.includes('rain')) {
     gonnaRain = true;
-    console.log("yeah, probably");
+    document.getElementById("answer").innerHTML = "yeah, probably";
   } else {
     gonnaRain = false;
-    console.log("probably not");
+    document.getElementById("answer").innerHTML = "probably not";
   }
 }
 
